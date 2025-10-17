@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  hello:
+    image: ghcr.io/aaronk83/hello-site:main
+    container_name: hello-site-hello-1
+    restart: unless-stopped
+    networks:
+      - caddy
+    labels:
+      caddy: hello.graspingai.com
+      caddy.reverse_proxy: "{{upstreams 80}}"
+    # optional: if you want live-editing directly on your server
+    volumes:
+      - ./html:/usr/share/nginx/html
+
+networks:
+  caddy:
+    external: true
