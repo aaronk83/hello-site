@@ -51,3 +51,17 @@ dist/
 __pycache__/
 *.pyc
 
+## 🧰 Using VS Code tasks
+
+App tasks:
+
+- **hello: up** – `docker compose up -d --build`
+- **hello: logs (follow)** – tail logs
+- **hello: down** – stop & remove
+- **git: sync (hello-site)** – commit + pull --rebase + push
+
+**Run:** `Ctrl/Cmd+Shift+P` → “Tasks: Run Task” → select a task.
+
+### Day-to-day flow (static site)
+- Edit `html/index.html` → save → refresh browser (bind mount = instant)
+- For image-based deploys, push to GitHub; update tag in Portainer if using immutable tags

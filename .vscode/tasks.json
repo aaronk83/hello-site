@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "hello: up",
+      "type": "shell",
+      "command": "docker compose -f compose.yaml up -d --build"
+    },
+    {
+      "label": "hello: logs (follow)",
+      "type": "shell",
+      "command": "docker compose -f compose.yaml logs -f"
+    },
+    {
+      "label": "hello: down",
+      "type": "shell",
+      "command": "docker compose -f compose.yaml down"
+    },
+    {
+      "label": "git: sync (hello-site)",
+      "type": "shell",
+      "command": "git add . && git commit -m \"chore: content update\" || true && git pull --rebase && git push"
+    }
+  ]
+}
